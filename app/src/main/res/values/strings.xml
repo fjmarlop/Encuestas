@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">El Diario Encuestas</string>
+    <string name="diario">El Diario</string>
+    <string name="encuesta">encuestas</string>
+    <string name="comenzar">comenzar</string>
+    <string name="logo">Logo principal de la aplicación</string>
+    <string name="menuAyuda">Ayuda</string>
+    <string name="menuAcerca">Acerca de</string>
+    <string name="acercaApp">Esta aplicación es la versión mejorada de mi primera tarea sobre android en el ciclo de DAM</string>
+    <string name="version">Versión 2.0 - Fecha: Junio 2023</string>
+    <string name="desarrollo">Desarrollado por:</string>
+    <string name="nombre">Fco Javier Marmolejo López</string>
+    <string name="web">https://www.fjmarlop.es</string>
+    <string name="volver">Volver</string>
+    <string name="textoInicio">Ayúdanos a mejoras nuestros productos y servicios</string>
+    <string name="textoAyuda_p1">La utilizacón de este formulario es sencilla, la recolección de datos es totalmente anónima.
+        La información recabada solo se utilizará con fines estadisticos y formativos.
+        En ningún caso se utilizará ni se facilitará a terceros culquier información obtenida</string>
+    <string name="textoAyuda_p2">Le pediremos unos datos básicos, edad, género y provincia de residencia. Estos datos son obligatorios para continuar con el formulario.</string>
+    <string name="textoAyuda_p3">Se le efectuaran una serie de preguntas donde prodrá elegir una sola respuesta, salvo que se indique la posibilidad de elegir mas de una.
+        Una vez iniciado el cuestionario debe contestar todas las preguntas hasta llegar al final, no le llevará mas de 2 minutos. Una vez seleccionada su respuesta, pulse el botón siguiente para avanzar a la proxima pregunta.</string>
+    <string name="textoAyuda_p4">Muchas gracias por utilizar nuestros servicios. Para mas información o asistencia técnica sobre el funcionamiento de nuestra aplicación
+        pongase en contacto a través de asistencias@elDiario.es</string>
+    <string name="cuestionario">Cuestionario</string>
+    <string name="datos">Algunos datos sobre ti</string>
+    <string name="edad">Edad:</string>
+    <string name="genero">Genero: </string>
+    <string-array name="generos">
+        <item>Femenino</item>
+        <item>Masculino</item>
+        <item>Otro</item>
+        <item>No contesta</item>
+    </string-array>
+    <string name="provincia">Provincia:</string>
+    <string-array name="provincias">
+        <item>Almeria</item>
+        <item>Cádiz</item>
+        <item>Córdoba</item>
+        <item>Granada</item>
+        <item>Huelva</item>
+        <item>Jaén</item>
+        <item>Málaga</item>
+        <item>Sevilla</item>
+    </string-array>
+</resources>
