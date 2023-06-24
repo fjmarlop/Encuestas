@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbarPrincipalActivity" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/lblEdad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -46,23 +46,23 @@
         app:layout_constraintTop_toTopOf="@+id/numEdad" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/lblGenero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/genero"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/spGenero"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintStart_toStartOf="@+id/lblEdad"
         app:layout_constraintTop_toTopOf="@+id/spGenero" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/lblProvincia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/provincia"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/spinnerProvincias"
-        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintStart_toStartOf="@+id/lblGenero"
         app:layout_constraintTop_toTopOf="@+id/spinnerProvincias" />
 
     <Spinner
@@ -91,7 +91,34 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/textView16"
+        app:layout_constraintStart_toEndOf="@+id/lblEdad"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <Button
+        android:id="@+id/btnComenzarPrincipal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="100dp"
+        android:text="@string/comenzar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerProvincias" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/contenedor"
+        android:name="es.fjmarlop.encuestas.fragmentos.PreguntasFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnComenzarPrincipal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
