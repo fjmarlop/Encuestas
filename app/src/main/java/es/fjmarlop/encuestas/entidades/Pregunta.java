@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 public class Pregunta {
 
-    private int idPregunta;
+    private int orden;
     private String enunciado;
     private ArrayList<String> respuestas;
     private int numeroRespuestas;
 
     public Pregunta() { }
 
-    public int getIdPregunta() {
-        return idPregunta;
+    public int getOrden() {
+        return orden;
     }
 
-    public void setIdPregunta(int idPregunta) {
-        this.idPregunta = idPregunta;
+    public void setOrden(int orden) {
+        this.orden = orden;
     }
 
     public String getEnunciado() {

@@ -4,10 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentContainerView;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,8 +22,6 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -70,41 +66,47 @@ public class PrincipalActivity extends AppCompatActivity {
         Button btnComenzar = findViewById(R.id.btnComenzarPrincipal);
 
         btnComenzar.setOnClickListener(v -> {
-            txtEdad.setTextColor(Color.BLACK);
-            txtGenero.setTextColor(Color.BLACK);
-            txtProvincia.setTextColor(Color.BLACK);
+                    txtEdad.setTextColor(Color.BLACK);
+                    txtGenero.setTextColor(Color.BLACK);
+                    txtProvincia.setTextColor(Color.BLACK);
 
-            // Comprobar edad
-            if (edad.getText().toString().isEmpty()){
-                Toast.makeText(this, "Tienes que rellenar la edad para continuar", Toast.LENGTH_SHORT).show();
-                txtEdad.setTextColor(Color.RED);
-                return;
-            }
-            int anios = Integer.parseInt(edad.getText().toString());
-            if (anios < 18 ){
-                Toast.makeText(this, "Tienes que ser mayor de edad para continuar", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            // Comprobar género
-            if(genero.getSelectedItem().toString().equals("Seleccionar")){
-                Toast.makeText(this, "Tienes que selecionar una opción para continuar", Toast.LENGTH_SHORT).show();
-                txtGenero.setTextColor(Color.RED);
-                return;
-            }
-            // Comprobar provincia
-            if(provincia.getSelectedItem().toString().equals("Seleccionar")){
-                Toast.makeText(this, "Tienes que selecionar una opción para continuar", Toast.LENGTH_SHORT).show();
-                txtProvincia.setTextColor(Color.RED);
-                return;
-            }
+                    // Comprobar edad
+                    if (edad.getText().toString().isEmpty()) {
+                        Toast.makeText(this, "Tienes que rellenar la edad para continuar", Toast.LENGTH_SHORT).show();
+                        txtEdad.setTextColor(Color.RED);
+                        return;
+                    }
+                    int anios = Integer.parseInt(edad.getText().toString());
+                    if (anios < 18) {
+                        Toast.makeText(this, "Tienes que ser mayor de edad para continuar", Toast.LENGTH_SHORT).show();
+                        edad.setText("");
+                        return;
+                    }
+                    edad.setEnabled(false);
+                    // Comprobar género
+                    if (genero.getSelectedItem().toString().equals("Seleccionar")) {
+                        Toast.makeText(this, "Tienes que selecionar una opción para continuar", Toast.LENGTH_SHORT).show();
+                        txtGenero.setTextColor(Color.RED);
+                        return;
+                    }
+                    genero.setEnabled(false);
+                    // Comprobar provincia
+                    if (provincia.getSelectedItem().toString().equals("Seleccionar")) {
+                        Toast.makeText(this, "Tienes que selecionar una opción para continuar", Toast.LENGTH_SHORT).show();
+                        txtProvincia.setTextColor(Color.RED);
+                        return;
+                    }
+                    provincia.setEnabled(false);
+                    contenedor.setVisibility(View.VISIBLE);
+                    String gen = genero.getSelectedItem().toString();
+                    String prov = provincia.getSelectedItem().toString();
+                    PreguntasFragment fragment = PreguntasFragment.newInstance(todasLasPreguntas, anios, gen, prov);
+                    FragmentTransaction iniciar = getSupportFragmentManager().beginTransaction();
+                    iniciar.replace(R.id.contenedor, fragment);
+                    iniciar.commit();
 
-            contenedor.setVisibility(View.VISIBLE);
-
-            PreguntasFragment fragment = PreguntasFragment.newInstance(todasLasPreguntas);
-            FragmentTransaction iniciar = getSupportFragmentManager().beginTransaction();
-            iniciar.replace(R.id.contenedor,fragment);
-            iniciar.commit();
-            }
+                    btnComenzar.setEnabled(false);
+                }
         );
 
     }
@@ -142,7 +144,7 @@ public class PrincipalActivity extends AppCompatActivity {
                     JSONObject object = new JSONObject(response.get(i).toString());
 
                     Pregunta pregunta = new Pregunta();
-                    pregunta.setIdPregunta(i + 1);
+                    pregunta.setOrden(i + 1);
                     pregunta.setEnunciado(object.getString("enunciado"));
 
                     JSONArray respuestas = object.getJSONArray("respuestas");

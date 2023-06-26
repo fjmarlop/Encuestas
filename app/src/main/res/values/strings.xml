@@ -44,6 +44,8 @@
         <item>Málaga</item>
         <item>Sevilla</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="gracias">Gracias por su colaboración</string>
+    <string name="fin">El cuestionario ha finalizado</string>
+    <string name="finalizar">Finalizar</string>
 </resources>
